@@ -16,3 +16,6 @@ git checkout --track (remote)/(branch)
 
 #设置本地分支与远程分支不同的名称
 git checkout -b (new branch) (branch)/(remote branch)
+
+#查看设置的所有分支
+git branch -vv
