@@ -1,0 +1,8 @@
+#显示远程库的标签和分支
+git ls-remote (remote)
+
+#显示远程库的所有分支
+git remote show (remote)
+
+#推送本地代码到远程服务器，并指定那个分支
+git push (remote) (branch)
