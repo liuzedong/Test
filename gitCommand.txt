@@ -1,0 +1,214 @@
+==============================================================获取Git仓库
+#在现有的目录中初始化仓库
+git init
+
+#克隆现有的仓库
+git clone (url)
+
+#克隆现有的仓库，并为简写命令
+git clone (url) (remote-name)
+
+
+
+==============================================================记录每次更新到仓库
+#检查当前文件所处的状态
+git status
+
+#跟踪新文件
+git add (file)
+
+#暂存已修改的文件
+git add (file)
+
+#状态以经凑格式输出，
+??:新文件，A:暂存区的新文件，M:暂存区的修改文件，MM:修改但未放入暂存区
+git status -s
+
+#忽略文件，使部分文件不用提交
+添加到.gitigore文件中
+
+#查看尚未暂存文件修改了哪些部分
+git diff
+
+#查看已存起来的变化
+git diff --cached
+
+#提交更新
+git commit [file]
+
+#提交更新，并添加备注
+git commit [file] -m "(content)"
+
+#移除暂存区的文件
+git rm (file)
+
+#移动暂存区的文件
+git mv (file) (file)
+
+
+==============================================================查看提交历史
+#列出所有提交记录
+git log
+
+#列出最近几次的提交次数
+git log -p -[number]
+
+#列出提交的简略的统计信息
+git log --stat
+
+#列出没提交的信息放一行显示
+git log --pretty=oneline
+
+#按照指定格式输出历史
+git log --pretty=format:"%h - %an - %ar : %s"
+
+参见：http://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2
+
+
+==============================================================撤销操作
+#重新提交
+git commit --amend
+
+#取消暂存文件
+git reset HEAD (file)
+
+#撤销对文件的修改
+git checkout -- (file)
+
+
+==============================================================远程仓库的使用
+#列出每个远程服务器的名称简写
+git remote
+
+#列出简写与其对应的URL
+git remote -v
+
+#添加一个新的Git远程仓库
+git remote add (shortname) (url)
+
+#从远程仓库抓取与拉取
+git fetch (remote)
+
+#推送到远程服务器
+git push (remote) (branch)
+
+#查看远程仓库
+git remote show [remotename]
+
+#重命名远程仓库简写
+git remote remote (oldremote) (newremote)
+
+#删除本地的远程仓库
+git remote rm (remote)
+
+==============================================================打标签
+#列出所有的标签
+git tag
+
+#查询一类标签
+git tag -l '(somename)*'
+
+#创建附注标签，这种标签带有说明
+git tag -a (tag-name) -m '(content)'
+
+#显示指定标签的信息
+git tag (tag-name)
+
+#创建轻量标签，只有标签，没有说明等信息
+git tag (tag-name)
+
+#为历史提交中打标签
+git tag -a (tag-name) (SHA1校验码中开头的一部分)
+
+#推送某标签到服务器
+git push (remote-name) (tagn-ame)
+
+#推送所有标签到服务器
+git push (remote-name) --tags
+
+
+==============================================================Git别名
+#为git命令起别名，方便开发
+git config --global alias.别名 别名的内容
+
+案例：
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.last 'log -1 HEAD'
+
+使用：
+git co
+git br
+git last
+
+
+==============================================================分支新建与合并
+#新建分支
+git branch (branch)
+
+#查询各个分支当前所指向的对象
+git log --oneline --decorate
+
+#切换分支
+git checkout (branch)
+
+#查询提交的历史，各个分支的指向以及项目的分支分叉情况
+git log --oneline --decorate --graph --all
+
+#新建分支并且切换到这个分支上
+git checkout -b (branch)
+
+#合并分支,先切换到主线分支上
+git merge (branch)
+
+#删除分支
+git branch -d (branch)
+
+##合并时可能有冲突，使用git status查看冲突的文件，然后手工修改
+##HEAD:是指向当前分支的指针
+
+==============================================================分支管理
+#列出当前分支列表，*为当前分支
+git branch
+
+#列出所有分支的最后一次提交
+git branch -v
+
+#列出已经合并到当前分支的分支
+git branch --merged
+
+#列出未合并到当前分支的分支
+git branch --no-merged
+
+
+==============================================================远程分支
+#显示远程库的标签和分支
+git ls-remote (remote)
+
+#显示远程库的所有分支
+git remote show (remote)
+
+#推送本地代码到远程服务器，并指定那个分支
+git push (remote) (branch)
+
+#推送本地分支到远程不同的分支上
+git push (remote) (local branch:remote branch)
+
+#连接与远程库的分支的关联
+git checkout -b (branch) [remotename]/[branch]
+git checkout --track (remote)/(branch)
+
+#设置本地分支与远程分支不同的名称
+git checkout -b (new branch) (branch)/(remote branch)
+
+#查看设置的所有分支
+git branch -vv
+
+#拉取远程分支上的内容，但是不会合并
+git fetch
+
+#拉取远程分支上的内容，并合并到当前目录中
+git pull
+
+#删除远程库上的分支
+git push (remote) --delete (branch)
