@@ -9,3 +9,10 @@ git push (remote) (branch)
 
 #推送本地分支到远程不同的分支上
 git push (remote) (local branch:remote branch)
+
+#连接与远程库的分支的关联
+git checkout -b (branch) [remotename]/[branch]
+git checkout --track (remote)/(branch)
+
+#设置本地分支与远程分支不同的名称
+git checkout -b (new branch) (branch)/(remote branch)
