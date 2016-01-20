@@ -6,3 +6,6 @@ git remote show (remote)
 
 #推送本地代码到远程服务器，并指定那个分支
 git push (remote) (branch)
+
+#推送本地分支到远程不同的分支上
+git push (remote) (local branch:remote branch)
