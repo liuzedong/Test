@@ -222,3 +222,8 @@ git push (remote) --delete (branch)
 mkdir (库名)
 cd (库名)
 git --bare init
+
+#使用git的shell，让该用户只拥有push和pull的权限
+which git-shell
+#然后添加显示的路径到/etc/shells里面
+chsh 用户（修改用户登录的shell）
