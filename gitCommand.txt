@@ -194,8 +194,8 @@ git push (remote) (branch)
 #推送本地分支到远程不同的分支上
 git push (remote) (local branch:remote branch)
 
-#连接与远程库的分支的关联
-git checkout -b (branch) [remotename]/[branch]
+#连接与远程库的分支的关联,就是下载远程分支到本地
+git checkout -b (local-branch) [remotename]/[remote-branch]
 git checkout --track (remote)/(branch)
 
 #设置本地分支与远程分支不同的名称
@@ -212,3 +212,13 @@ git pull
 
 #删除远程库上的分支
 git push (remote) --delete (branch)
+
+
+==============================================================协议与创建裸库
+#Git常使用的远程协议
+本地协议（Local），HTTP协议，SSH（Secure Shell）协议，Git协议
+
+#创建一个裸库
+mkdir (库名)
+cd (库名)
+git --bare init
