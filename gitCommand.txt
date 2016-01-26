@@ -233,3 +233,18 @@ git log --abbrev-commit --pretty=oneline
 
 #显示最后一次提交的SHA1的值
 git rev-parse (branchname)
+
+#引用日志：记录了最近几个月你的HEAD和分支所指向的引用
+git reflog
+
+#引用中的某次输出的提交记录
+git show HEAD@{(number)}
+
+#查询某个分支在一定时间前的位置
+git show (branch)@{yesterday}
+
+#输入引用日志
+git log -g
+
+#上次提交的记录
+git show HEAD^
