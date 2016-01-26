@@ -227,3 +227,9 @@ git --bare init
 which git-shell
 #然后添加显示的路径到/etc/shells里面
 chsh 用户（修改用户登录的shell）
+
+#显示唯一的SHA1值得简单日志
+git log --abbrev-commit --pretty=oneline
+
+#显示最后一次提交的SHA1的值
+git rev-parse (branchname)
